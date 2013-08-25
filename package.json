@@ -1,8 +1,8 @@
 {
-  "name": "<%= appName %>",
-  "version": "0.0.0",
-  "description": "<%= appDescription %>",
-  "author": "<%= realname %>",
+  "name": "clutch-boilerplate",
+  "version": "0.1.0",
+  "description": "A boilerplate application for the Clutch framework",
+  "author": "Adam Duro",
   "license": "BSD",
   "dependencies": {
     "express": "~3.3.5",
