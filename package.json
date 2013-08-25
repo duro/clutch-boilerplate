@@ -1,0 +1,11 @@
+{
+  "name": "clutch-boilerplate",
+  "version": "0.1.0",
+  "description": "The application boilerplate for a Clutch app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD"
+}
