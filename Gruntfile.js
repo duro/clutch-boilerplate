@@ -42,12 +42,20 @@ module.exports = function(grunt) {
         },
         src: ['server/test/**/*.js']
       }
+    },
+
+    hub: {
+      staticApps: {
+        src: ['client/apps/*/Gruntfile.js'],
+        tasks: ['default'],
+      },
     }
   });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-hub');
 
   // Default task.
   grunt.registerTask('default', ['jshint']);

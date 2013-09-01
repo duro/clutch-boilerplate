@@ -8,6 +8,7 @@ module.exports = function() {
   this.engine('html', swig.renderFile);
   this.set('view engine', 'html');
   this.set('views', path.join(__dirname, '../../templates'));
+  this.format('html', { extension: '.html' });
 
   // Override default template extension.  By default, Locomotive finds
   // templates using the `name.format.engine` convention, for example
