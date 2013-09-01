@@ -1,9 +1,8 @@
 {
-  "name": "clutch-boilerplate",
+  "name": "nodegigs",
   "version": "0.1.0",
-  "description": "The boilerplate for a Clutch app",
+  "description": "A node.js job board written in node.js",
   "author": "Adam Duro",
-  "license": "BSD",
   "main": "server/index.js",
   "dependencies": {
     "locomotive": "duro/locomotive",
