@@ -44,20 +44,28 @@ module.exports = function(grunt) {
       }
     },
 
+    clean: {
+      staticApps: ["public/statics/javascripts/apps"]
+    },
+
     hub: {
       staticApps: {
         src: ['client/apps/*/Gruntfile.js'],
-        tasks: ['default'],
+        tasks: ['build'],
       },
     }
   });
 
   // These plugins provide necessary tasks.
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-hub');
 
   // Default task.
   grunt.registerTask('default', ['jshint']);
+
+  // Static build task
+  grunt.registerTask('build_statics', ['clean:staticApps', 'hub:staticApps']);
 
 };
