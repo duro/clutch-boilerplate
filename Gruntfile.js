@@ -47,16 +47,19 @@ module.exports = function(grunt) {
     clean: ["public/statics"],
 
     hub: {
-      buildStaticApps: {
-        src: ['client/apps/*/Gruntfile.js'],
+      build: {
+        src: [
+          'client/apps/*/Gruntfile.js',
+          'client/statics/Gruntfile.js'
+        ],
         tasks: ['build'],
       },
-      watchStaticApps: {
-        src: ['client/apps/*/Gruntfile.js'],
+      watch: {
+        src: [
+          'client/apps/*/Gruntfile.js',
+          'client/statics/Gruntfile.js'
+        ],
         tasks: ['watch'],
-      },
-      buildGlobalStatics: {
-        src: ['client/statics/Gruntfile.js']
       }
     },
 
@@ -75,7 +78,7 @@ module.exports = function(grunt) {
 
     concurrent: {
       dev: {
-        tasks: ['nodemon:dev', 'hub:watchStaticApps'],
+        tasks: ['nodemon:dev', 'hub:watch'],
         options: {
           logConcurrentOutput: true
         }
@@ -97,9 +100,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint']);
 
   // Static build task
-  grunt.registerTask('build_statics', [
-    'clean', 'hub:buildGlobalStatics', 'hub:buildStaticApps'
-  ]);
+  grunt.registerTask('build_statics', ['clean', 'hub:build']);
 
   // Dev task
   grunt.registerTask('dev', ['concurrent:dev']);
