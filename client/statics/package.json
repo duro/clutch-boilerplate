@@ -1,7 +1,5 @@
 {
   "name": "statics",
-  "version": "0.1.0",
-  "author": "Adam Duro",
   "description": "Global static files",
   "buildDir": "../../public/statics",
   "devDependencies": {
