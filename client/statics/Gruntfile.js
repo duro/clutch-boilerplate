@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     clean: {
       options: { force: true },
       build: {
-        src: ['<%= pkg.buildDir %>/assets']
+        src: ['<%%= pkg.buildDir %>/assets']
       }
     },
 
@@ -29,14 +29,14 @@ module.exports = function(grunt) {
       dist: {
         options: {
           sassDir: 'scss',
-          cssDir: '<%= pkg.buildDir %>/assets/stylesheets',
+          cssDir: '<%%= pkg.buildDir %>/assets/stylesheets',
           environment: 'production'
         }
       },
       dev: {
         options: {
           sassDir: 'scss',
-          cssDir: '<%= pkg.buildDir %>/assets/stylesheets',
+          cssDir: '<%%= pkg.buildDir %>/assets/stylesheets',
         }
       }
     }
