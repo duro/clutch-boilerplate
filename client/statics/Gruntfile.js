@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     copy: {
       release: {
         files: [
-          { expand: true, src: ['assets/**'], dest: '<%= pkg.buildDir %>' }
+          { expand: true, src: ['assets/**'], dest: '<%%= pkg.buildDir %>' }
         ]
       }
     },
