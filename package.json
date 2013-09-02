@@ -1,8 +1,8 @@
 {
-  "name": "nodegigs",
-  "version": "0.1.0",
-  "description": "A node.js job board written in node.js",
-  "author": "Adam Duro",
+  "name": "<%= appName %>",
+  "version": "<%= version %>",
+  "description": "<%= appDescription %>",
+  "author": "<%= realname %>",
   "main": "server/index.js",
   "dependencies": {
     "locomotive": "duro/locomotive",
