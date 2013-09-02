@@ -39,6 +39,13 @@ module.exports = function(grunt) {
           cssDir: '<%%= pkg.buildDir %>/assets/stylesheets',
         }
       }
+    },
+
+    watch: {
+      compass: {
+        files: ['scss/**/*.scss'],
+        tasks: ['compass:dev']
+      }
     }
   });
 
