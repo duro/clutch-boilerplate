@@ -3,10 +3,18 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+
+    /* --------------------------------------- */
+    /* --( Variables )-- */
+    /* --------------------------------------- */
+
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
 
-    // JSHint Config
+    /* --------------------------------------- */
+    /* --( JSHint )-- */
+    /* --------------------------------------- */
+
     jshint: {
       options: {
         eqeqeq: true,
@@ -33,40 +41,30 @@ module.exports = function(grunt) {
       }
     },
 
-    // Setting up mocha tests
-    mochaTest: {
-      server: {
-        options: {
-          timeout: 10000,
-          reporter: 'spec'
-        },
-        src: ['server/test/**/*.js']
-      }
-    },
-
-    clean: ["public/statics"],
+    /* --------------------------------------- */
+    /* --( Grunt HUB Config )-- */
+    /* --------------------------------------- */
 
     hub: {
       build: {
-        src: [
-          'client/apps/*/Gruntfile.js',
-          'client/statics/Gruntfile.js'
-        ],
+        src: ['client/*/Gruntfile.js'],
         tasks: ['build'],
       },
       watch: {
-        src: [
-          'client/apps/*/Gruntfile.js',
-          'client/statics/Gruntfile.js'
-        ],
+        src: ['client/*/Gruntfile.js'],
         tasks: ['watch'],
       }
     },
+
+    /* --------------------------------------- */
+    /* --( Node Monitor Server )-- */
+    /* --------------------------------------- */
 
     nodemon: {
       dev: {
         options: {
           file: 'server/index.js',
+          nodeArgs: ['--debug'],
           ignoredFiles: ['README.md', 'node_modules/**'],
           watchedExtensions: ['js'],
           watchedFolders: ['server'],
@@ -75,6 +73,10 @@ module.exports = function(grunt) {
         }
       }
     },
+
+    /* --------------------------------------- */
+    /* --( Concurrent Task config )-- */
+    /* --------------------------------------- */
 
     concurrent: {
       dev: {
@@ -85,6 +87,10 @@ module.exports = function(grunt) {
       }
     }
   });
+
+  /* --------------------------------------- */
+  /* --( Grunt Config )-- */
+  /* --------------------------------------- */
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -100,9 +106,10 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint']);
 
   // Static build task
-  grunt.registerTask('build_statics', ['clean', 'hub:build']);
+  grunt.registerTask('build', ['hub:build']);
 
-  // Dev task
-  grunt.registerTask('dev', ['concurrent:dev']);
+  // Dev Server
+  grunt.registerTask('server', ['server:dev']);
+  grunt.registerTask('server:dev', ['concurrent:dev']);
 
 };
