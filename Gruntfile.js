@@ -80,12 +80,25 @@ module.exports = function(grunt) {
 
     concurrent: {
       dev: {
-        tasks: ['nodemon:dev', 'hub:watch'],
+        tasks: ['nodemon:dev', 'node-inspector', 'hub:watch'],
         options: {
           logConcurrentOutput: true
         }
       }
+    },
+
+    /* --------------------------------------- */
+    /* --( Node-Inspector config )-- */
+    /* --------------------------------------- */
+
+    'node-inspector': {
+      dev: {
+        options: {
+          'web-port': 8888
+        }
+      }
     }
+
   });
 
   /* --------------------------------------- */
@@ -101,6 +114,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-node-inspector');
 
   // Default task.
   grunt.registerTask('default', ['jshint']);

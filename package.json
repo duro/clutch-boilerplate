@@ -33,6 +33,7 @@
     "grunt-mocha-test": "~0.6.3",
     "grunt-contrib-requirejs": "~0.4.1",
     "grunt-contrib-clean": "~0.5.0",
-    "grunt-hub": "~0.5.0"
+    "grunt-hub": "~0.5.0",
+    "grunt-node-inspector": "~0.1.2",
   }
 }
